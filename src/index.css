@@ -1,13 +1,333 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: black;
+  color: white;
+}
+h3 {
+  margin: 0;
+  padding: 1em;
+}
+a,
+.link-btn {
+  text-decoration: none;
+  color: white;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+a:hover,
+.link-btn:hover {
+  color: #f565f5;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0px;
+}
+.loading {
+  height: 5px;
+  background-color: #f565f5;
+}
+input {
+  width: 230px;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+.btn,
+a.btn,
+button {
+  text-transform: capitalize;
+  padding: 10px;
+  cursor: pointer;
+  background: #f565f5;
+  font-size: 16px;
+  width: 250px;
+  position: relative;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.btn:hover,
+a.btn:hover,
+button:hover {
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.btn:focus,
+a.btn:focus,
+button:focus {
+  outline: 0;
+  font-weight: 700;
+  border-width: 2px;
+}
+
+.btn:disabled,
+a.btn:disabled,
+button:disabled {
+  color: #aaa;
+  font-weight: 400;
+  cursor: initial;
+  letter-spacing: 0px;
+}
+.btn-auth {
+  text-transform: none;
+  margin: 0;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  background: none;
+  width: auto;
+  font-size: initial;
+  font-family: inherit;
+}
+
+.center {
+  text-align: center;
+}
+
+.active {
+  font-weight: bold;
+}
+.error {
+  color: red;
+}
+.empty-message {
+  padding: 20px;
+}
+/* Navigation */
+.nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.nav ul {
+  text-decoration: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+.nav ul li a {
+  display: inline-block;
+  height: 40px;
+  line-height: 40px;
+}
+.nav ul li .link-btn {
+  height: 40px;
+  line-height: 40px;
+}
+.nav ul li .active {
+  border-bottom: 3px solid #f565f5;
+}
+
+.nav ul.main-menu {
+  justify-content: flex-start;
+}
+.nav ul.profile-menu {
+  justify-content: flex-end;
+}
+
+.nav li:first-child {
+  padding-left: 0;
+}
+
+.nav ul.profile-menu .profile-link {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+ul {
+  padding-left: 0;
+}
+
+li {
+  list-style-type: none;
+  padding: 10px;
+  text-decoration: none;
+}
+
+/* Questoins List */
+.border-box {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 10px;
+}
+.questions-list .list-title {
+  border-bottom: 1px solid #ccc;
+  background-color: #222;
+}
+.questions-list ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.questions-list li {
+  padding: 20px;
+}
+
+.questions-list .title {
+  font-size: 1em;
+  font-weight: 600;
+  margin: 0;
+}
+.questions-list .sub-title {
+  font-size: 0.8em;
+  color: #999;
+  padding-bottom: 20px;
+  margin: 0;
+}
+.questions-list a.btn {
+  display: inline-block;
+  border-radius: 5px;
+}
+
+/* Question Page */
+.avatar {
+  border-radius: 50%;
+  margin: 5px;
+}
+
+.would-you-rather ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.would-you-rather li {
+  margin: 10px;
+}
+.would-you-rather li.li-or {
+  position: relative;
+}
+.would-you-rather li.li-or .text-or {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.would-you-rather li.btn {
+  text-transform: none;
+  padding: 30px;
+  color: white;
+  border: none;
+}
+
+.would-you-rather li.btn:hover {
+  font-weight: 600;
+  border: 3px solid #f565f5;
+  padding: 27px;
+}
+
+.would-you-rather li.btn.answered {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: inherit;
+  border: none;
+  position: relative;
+}
+.would-you-rather li.btn.answered:hover {
+  font-weight: 400;
+  border: none;
+  padding: 30px;
+}
+
+.would-you-rather li.btn.optionOne {
+  background-color: #487140;
+}
+.would-you-rather li.btn.optionTwo {
+  background-color: #695fa7;
+}
+.would-you-rather .answered .checked {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+}
+.would-you-rather .answered .result .percentage {
+  font-size: 2em;
+  font-weight: 600;
+  color: #f565f5;
+  padding-top: 10px;
+}
+.would-you-rather .answered .result .votes-count {
+  font-weight: 600;
+  color: #f565f5;
+}
+
+/* New Questoin*/
+.would-you-rather textarea {
+  border-radius: 5px;
+  border: 1px solid #dad7d7;
+  padding: 10px;
+  font-size: 15px;
+  height: 100px;
+}
+
+/* Leaderboard */
+.leaderboard {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  border-collapse: collapse;
+}
+.leaderboard td,
+.leaderboard th {
+  border: 1px solid #eee;
+  padding: 10px;
+  text-align: center;
+}
+.leaderboard .users {
+  text-align: left;
+}
+
+.leaderboard .header th {
+  font-weight: 600;
+  background-color: #222;
+}
+
+.leaderboard .row .users .flex-box {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+.leaderboard .user-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+}
+.leaderboard .user-info .user-name {
+  font-weight: 600;
+}
+.leaderboard .user-info .user-id {
+  font-size: 0.8em;
+}
+
+.leaderboard .row.selected {
+  background-color: #f565f5;
+}
+
+/* Login Page */
+.login {
+  padding-top: 40px;
+}
+
+/* Profile Page */
+.profile .user-info {
+  margin-bottom: 50px;
+}
+.profile .user-name {
+  padding: 0;
 }
