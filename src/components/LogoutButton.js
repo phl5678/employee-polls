@@ -5,14 +5,12 @@ import { handleUserLogout } from '../actions/authedUser';
 
 const LogoutButton = ({ dispatch }) => {
   const navigate = useNavigate();
+  function handleClick(e) {
+    dispatch(handleUserLogout());
+    navigate('/');
+  }
   return (
-    <button
-      className="link-btn btn-auth"
-      onClick={() => {
-        dispatch(handleUserLogout());
-        navigate('/');
-      }}
-    >
+    <button className="link-btn btn-auth" onClick={handleClick}>
       Log Out
     </button>
   );

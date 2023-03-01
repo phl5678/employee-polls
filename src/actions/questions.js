@@ -41,7 +41,7 @@ function addQuestion(question) {
   };
 }
 
-export function handleAddQuestion(optionOneText, optionTwoText, navigate) {
+export function handleAddQuestion(optionOneText, optionTwoText) {
   return (dispatch, getState) => {
     const { authedUserID } = getState();
 
@@ -53,7 +53,6 @@ export function handleAddQuestion(optionOneText, optionTwoText, navigate) {
     })
       .then((question) => {
         dispatch(addQuestion(question));
-        navigate(`/question/${question.id}`);
       })
       .catch((err) => {
         dispatch(addErrors([err]));

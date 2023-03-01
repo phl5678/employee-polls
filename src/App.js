@@ -1,15 +1,15 @@
 import { connect } from 'react-redux';
 import { Routes, Route } from 'react-router-dom';
-import HomePage from '../pages/HomePage';
-import QuestionPage from '../pages/QuestionPage';
-import NewQuestionPage from '../pages/NewQuestionPage';
+import HomePage from './pages/HomePage';
+import QuestionPage from './pages/QuestionPage';
+import NewQuestionPage from './pages/NewQuestionPage';
 import LoadingBar from 'react-redux-loading-bar';
-import LeaderboardPage from '../pages/LeaderboardPage';
-import ProfilePage from '../pages/ProfilePage';
-import LoginPage from '../pages/LoginPage';
-import NotFoundPage from '../pages/NotFoundPage';
-import AuthGuard from './AuthGuard';
-import { handleInitialData } from '../actions/shared';
+import LeaderboardPage from './pages/LeaderboardPage';
+import ProfilePage from './pages/ProfilePage';
+import LoginPage from './pages/LoginPage';
+import NotFoundPage from './pages/NotFoundPage';
+import AuthGuard from './components/AuthGuard';
+import { handleInitialData } from './actions/shared';
 import { useEffect } from 'react';
 
 function App({ dispatch }) {

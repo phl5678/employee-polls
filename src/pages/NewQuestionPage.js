@@ -2,9 +2,9 @@ import { handleAddQuestion } from '../actions/questions';
 import NavBar from '../components/NavBar';
 import { useState } from 'react';
 import { connect } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import ErrorsList from '../components/ErrorsList';
 import { resetErrors } from '../actions/errors';
+import { useNavigate } from 'react-router-dom';
 
 const NewQuestionPage = ({ dispatch, errors }) => {
   const navigate = useNavigate();
@@ -23,7 +23,9 @@ const NewQuestionPage = ({ dispatch, errors }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (errors.length > 0) dispatch(resetErrors());
-    dispatch(handleAddQuestion(optionOne, optionTwo, navigate));
+    dispatch(handleAddQuestion(optionOne, optionTwo)).then(() => {
+      navigate('/home');
+    });
   };
 
   return (

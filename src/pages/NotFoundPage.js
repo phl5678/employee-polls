@@ -1,4 +1,13 @@
-const NotFoundPage = () => {
-  return <h2 className="center">Page Not Found</h2>;
+import { connect } from 'react-redux';
+import NavBar from '../components/NavBar';
+
+const NotFoundPage = ({ authedUserID }) => {
+  return (
+    <div>
+      {authedUserID !== null ? <NavBar /> : null}
+      <h2 className="center">Page Not Found</h2>
+    </div>
+  );
 };
-export default NotFoundPage;
+const mapStateToProps = ({ authedUserID }) => ({ authedUserID });
+export default connect(mapStateToProps)(NotFoundPage);

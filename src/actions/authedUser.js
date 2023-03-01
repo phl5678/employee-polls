@@ -11,14 +11,13 @@ export function setAuthedUser(id) {
   };
 }
 
-export function handleUserLogin(id, password, navigate) {
+export function handleUserLogin(id, password) {
   return (dispatch) => {
     dispatch(showLoading());
     return loginUser({ id, password })
       .then((result) => {
         if (result === true) {
           dispatch(setAuthedUser(id));
-          navigate('/home');
         } else {
           dispatch(addErrors(['Password not matched.']));
         }

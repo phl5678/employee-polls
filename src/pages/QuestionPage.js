@@ -5,6 +5,7 @@ import FormattedDate from '../components/FormattedDate';
 
 import AnswersList from '../components/AnswersList';
 import AnswersListResult from '../components/AnswersListResult';
+import NotFoundPage from './NotFoundPage';
 
 const withRouter = (Component) => {
   const ComponentWithRouterProp = (props) => {
@@ -18,7 +19,9 @@ const withRouter = (Component) => {
 };
 
 const QuestionPage = ({ question, author, authedUserID, authedUserAnswer }) => {
-  return (
+  return question === null ? (
+    <NotFoundPage />
+  ) : (
     <div>
       <NavBar />
       <div className="container center">
@@ -49,14 +52,19 @@ const QuestionPage = ({ question, author, authedUserID, authedUserAnswer }) => {
 
 const mapStateToProps = ({ authedUserID, users, questions }, props) => {
   const { question_id } = props.router.params;
-  const authedUserAnswer = users[authedUserID]?.answers[question_id]
-    ? users[authedUserID].answers[question_id]
-    : null;
-  return {
-    question: questions[question_id],
-    author: users[questions[question_id]?.author],
-    authedUserID,
-    authedUserAnswer,
-  };
+  const question = questions[question_id];
+  if (question !== undefined) {
+    const authedUserAnswer = users[authedUserID]?.answers[question_id]
+      ? users[authedUserID].answers[question_id]
+      : null;
+    return {
+      question: questions[question_id],
+      author: users[questions[question_id]?.author],
+      authedUserID,
+      authedUserAnswer,
+    };
+  } else {
+    return { question: null, author: null, authedUserID, authedUserAnswer: null };
+  }
 };
 export default withRouter(connect(mapStateToProps)(QuestionPage));
