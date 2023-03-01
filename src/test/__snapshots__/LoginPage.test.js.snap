@@ -2,91 +2,6 @@
 
 exports[`testing <LoginPage /> should match the snapshot 1`] = `
 Object {
-  "asFragment": [Function],
-  "baseElement": <body>
-    <div>
-      <div
-        class="login center"
-      >
-        <img
-          alt="Would You Rather"
-          src="./hero.png"
-          width="300px"
-        />
-        <h3>
-          Employee Polls
-        </h3>
-        <form
-          data-testid="login-form"
-        >
-          <div>
-            <input
-              data-testid="id-input"
-              placeholder="id"
-              type="text"
-              value=""
-            />
-          </div>
-          <div>
-            <input
-              data-testid="pw-input"
-              placeholder="password"
-              type="password"
-              value=""
-            />
-          </div>
-          <button
-            class="btn"
-            disabled=""
-            type="submit"
-          >
-            Log In
-          </button>
-        </form>
-      </div>
-    </div>
-  </body>,
-  "container": <div>
-    <div
-      class="login center"
-    >
-      <img
-        alt="Would You Rather"
-        src="./hero.png"
-        width="300px"
-      />
-      <h3>
-        Employee Polls
-      </h3>
-      <form
-        data-testid="login-form"
-      >
-        <div>
-          <input
-            data-testid="id-input"
-            placeholder="id"
-            type="text"
-            value=""
-          />
-        </div>
-        <div>
-          <input
-            data-testid="pw-input"
-            placeholder="password"
-            type="password"
-            value=""
-          />
-        </div>
-        <button
-          class="btn"
-          disabled=""
-          type="submit"
-        >
-          Log In
-        </button>
-      </form>
-    </div>
-  </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
   "findAllByDisplayValue": [Function],
@@ -120,6 +35,7 @@ Object {
   "getByTestId": [Function],
   "getByText": [Function],
   "getByTitle": [Function],
+  "logTestingPlaygroundURL": [Function],
   "queryAllByAltText": [Function],
   "queryAllByDisplayValue": [Function],
   "queryAllByLabelText": [Function],
@@ -136,7 +52,5 @@ Object {
   "queryByTestId": [Function],
   "queryByText": [Function],
   "queryByTitle": [Function],
-  "rerender": [Function],
-  "unmount": [Function],
 }
 `;

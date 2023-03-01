@@ -20,20 +20,20 @@ const LoginPage = ({ dispatch, errors, authedUserID }) => {
         navigate('/home');
       }
     }
-  }, [authedUserID, navigate]);
+  }, [authedUserID, navigate, searchParams]);
 
   function handleChangeID(e) {
-    if (errors.length > 0) dispatch(resetErrors());
+    if (errors && errors.length > 0) dispatch(resetErrors());
     setID(e.target.value);
   }
   function handleChangePW(e) {
-    if (errors.length > 0) dispatch(resetErrors());
+    if (errors && errors.length > 0) dispatch(resetErrors());
     setPW(e.target.value);
   }
 
   function handleSumbit(e) {
     e.preventDefault();
-    if (errors.length > 0) dispatch(resetErrors());
+    if (errors && errors.length > 0) dispatch(resetErrors());
     dispatch(handleUserLogin(id, pw));
   }
   return (

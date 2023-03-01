@@ -1,5 +1,5 @@
 const ErrorsList = ({ errors }) => {
-  return errors.length === 0 ? null : (
+  return errors && errors.length !== 0 ? (
     <div className="error" data-testid="errors-list">
       <ul>
         {errors.map((err, index) => (
@@ -7,7 +7,7 @@ const ErrorsList = ({ errors }) => {
         ))}
       </ul>
     </div>
-  );
+  ) : null;
 };
 
 export default ErrorsList;

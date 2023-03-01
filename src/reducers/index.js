@@ -9,6 +9,6 @@ export default combineReducers({
   authedUserID: authedUser,
   users,
   questions,
-  errors: errors,
+  errors,
   loadingBar: loadingBarReducer,
 });

@@ -1,37 +1,21 @@
-import { render, fireEvent } from '@testing-library/react';
+import { screen, fireEvent } from '@testing-library/react';
 import LogoutButton from '../components/LogoutButton';
-import { BrowserRouter } from 'react-router-dom';
-import { createStore } from '@reduxjs/toolkit';
-import reducers from '../reducers';
-import middleware from '../middleware';
-import { Provider } from 'react-redux';
+import { renderWithContext } from './test-utils';
 
-const mockStore = createStore(reducers, middleware);
 const mockHandleUserLogout = jest.fn();
 jest.mock('../actions/authedUser.js', () => ({
+  ...jest.requireActual('../actions/authedUser.js'),
   handleUserLogout: () => mockHandleUserLogout,
 }));
 
 describe('testing <LogoutButton />', () => {
   it('should match the snapshot', () => {
-    const comp = render(
-      <Provider store={mockStore}>
-        <BrowserRouter>
-          <LogoutButton />
-        </BrowserRouter>
-      </Provider>
-    );
-    expect(comp).toMatchSnapshot();
+    renderWithContext(<LogoutButton />);
+    expect(screen).toMatchSnapshot();
   });
   it('should call handleUserLogout action after clicking the logout button', () => {
-    const comp = render(
-      <Provider store={mockStore}>
-        <BrowserRouter>
-          <LogoutButton />
-        </BrowserRouter>
-      </Provider>
-    );
-    const button = comp.getByText('Log Out');
+    renderWithContext(<LogoutButton />);
+    const button = screen.getByText('Log Out');
     expect(button).toBeInTheDocument();
     fireEvent.click(button);
     expect(mockHandleUserLogout).toHaveBeenCalled();
