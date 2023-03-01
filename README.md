@@ -1,70 +1,19 @@
-# Getting Started with Create React App
+# Employee Polls
+A react web app that allows user to create Would You Rather A or B question, answer questions and compete with other users. Win by creating and answering more questions. This project uses redux to manage state, thunk to handle async actions, and includes only front end work. 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Get started by `npm install` and `npm start`
+1. Runs the app in the development mode. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+2. Must log in with the credentials provided in _DATA.js in order to navigate to various pages.
+   - sarahedo/password123, mtsamis/xyz123, etc
+3. Once logged in, you have access to /home, /add, /leaderboard, and /profile pages as well as question answering/result page through clicking any of the questions on the homd page. 
+4. Answer any questions in the New Questions section, and view the result once the answer is submitted.
+5. View the question result by navigating to any of the Done Questions section.
+6. All questions should be listed reverse-chronilogically.
+7. Go to New page to add a new Would You Rather question.
+8. Go to Profile page to view all of your questions.
+9. Log out by clicking the Log Out link.
 
-## Available Scripts
+Note: for testing purpose, the initial data is loaded to redux data store whenever the app is loaded regardless user signin (in real world, this should not be the case). You can retain the newly-created question and logging in/out with different users to see that question. However, if you try to access that question directly through the link pasted in the address bar, then this won't work as the app gets reloaded and the data store gets reset to initial data. 
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Unit test by `npm run test`
+1. There are 18 tests. They should be all pass. 
