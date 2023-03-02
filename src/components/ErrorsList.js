@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 const ErrorsList = ({ errors }) => {
   return errors && errors.length !== 0 ? (
     <div className="error" data-testid="errors-list">
@@ -9,5 +11,7 @@ const ErrorsList = ({ errors }) => {
     </div>
   ) : null;
 };
-
+ErrorsList.propTypes = {
+  errors: PropTypes.arrayOf(PropTypes.string),
+};
 export default ErrorsList;

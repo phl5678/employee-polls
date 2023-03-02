@@ -11,16 +11,6 @@ h3 {
   margin: 0;
   padding: 1em;
 }
-a,
-.link-btn {
-  text-decoration: none;
-  color: white;
-}
-
-a:hover,
-.link-btn:hover {
-  color: #f565f5;
-}
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -35,6 +25,31 @@ input {
   margin-bottom: 10px;
   padding: 10px;
 }
+
+a,
+.link-btn {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover,
+.link-btn:hover {
+  color: #f565f5;
+}
+
+button.link-btn {
+  text-transform: none;
+  padding: 0px;
+  cursor: pointer;
+  background: none;
+  font-size: 16px;
+  width: auto;
+  position: relative;
+  color: white;
+  border: none;
+  border-radius: none;
+}
+
 .btn,
 a.btn,
 button {
@@ -153,6 +168,45 @@ li {
 }
 
 /* Questoins List */
+.toggle {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+input[type='radio'] {
+  width: auto;
+  background-color: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  display: inline-block;
+  height: 16px;
+  width: 16px;
+  margin: 0 5px -2px 5px;
+  padding: 0px;
+  -webkit-appearance: none;
+}
+input[type='radio']:after {
+  background-color: white;
+  border-radius: 50%;
+  content: '';
+  display: block;
+  height: 10px;
+  width: 10px;
+  position: relative;
+  left: 3px;
+  top: 3px;
+}
+input[type='radio']:checked:after {
+  background-color: #f565f5;
+}
+
+.toggle label {
+  padding-right: 10px;
+  cursor: pointer;
+}
+
 .border-box {
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -215,6 +269,9 @@ li {
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
+.would-you-rather li.btn > div {
+  overflow-wrap: break-word;
+}
 .would-you-rather li.btn {
   text-transform: none;
   padding: 30px;
@@ -271,6 +328,10 @@ li {
   padding: 10px;
   font-size: 15px;
   height: 100px;
+}
+.would-you-rather .option-length {
+  color: red;
+  font-weight: 600;
 }
 
 /* Leaderboard */

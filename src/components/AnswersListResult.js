@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import AnswerResult from './AnswerResult';
 
 const AnswersListResult = ({ authedUserAnswer, question }) => {
@@ -20,5 +21,9 @@ const AnswersListResult = ({ authedUserAnswer, question }) => {
       />
     </ul>
   );
+};
+AnswersListResult.propTypes = {
+  authedUserAnswer: PropTypes.string,
+  question: PropTypes.object,
 };
 export default AnswersListResult;

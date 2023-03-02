@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { handleUserLogout } from '../actions/authedUser';
 
 const LogoutButton = ({ dispatch }) => {
@@ -16,4 +17,7 @@ const LogoutButton = ({ dispatch }) => {
   );
 };
 
+LogoutButton.propTypes = {
+  dispatch: PropTypes.func,
+};
 export default connect()(LogoutButton);

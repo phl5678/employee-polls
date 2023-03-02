@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import ErrorsList from '../components/ErrorsList';
 import { resetErrors } from '../actions/errors';
+import PropTypes from 'prop-types';
 
 const LoginPage = ({ dispatch, errors, authedUserID }) => {
   const navigate = useNavigate();
@@ -66,6 +67,12 @@ const LoginPage = ({ dispatch, errors, authedUserID }) => {
       </form>
     </div>
   );
+};
+
+LoginPage.propTypes = {
+  dispatch: PropTypes.func,
+  errors: PropTypes.arrayOf(PropTypes.string),
+  authedUserID: PropTypes.string,
 };
 const mapStateToProps = ({ errors, authedUserID }) => ({ errors, authedUserID });
 export default connect(mapStateToProps)(LoginPage);

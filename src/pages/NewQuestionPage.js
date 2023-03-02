@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import ErrorsList from '../components/ErrorsList';
 import { resetErrors } from '../actions/errors';
 import { useNavigate } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const NewQuestionPage = ({ dispatch, errors }) => {
   const navigate = useNavigate();
@@ -24,10 +25,12 @@ const NewQuestionPage = ({ dispatch, errors }) => {
     e.preventDefault();
     if (errors.length > 0) dispatch(resetErrors());
     dispatch(handleAddQuestion(optionOne, optionTwo)).then(() => {
-      navigate('/home');
+      if (errors.length === 0) navigate('/home');
     });
   };
 
+  const optionOneLeft = 280 - optionOne.length;
+  const optionTwoLeft = 280 - optionTwo.length;
   return (
     <div>
       <NavBar />
@@ -44,7 +47,12 @@ const NewQuestionPage = ({ dispatch, errors }) => {
                 className="textarea"
                 rows="4"
                 cols="30"
+                minLength={3}
+                maxLength={280}
               />
+              {optionOneLeft <= 100 && (
+                <div className="option-length">{optionOneLeft} characters left</div>
+              )}
             </li>
             <li className="li-or">
               <div className="text-or">OR</div>
@@ -59,11 +67,22 @@ const NewQuestionPage = ({ dispatch, errors }) => {
                 width="200px"
                 rows="4"
                 cols="30"
+                minLength={3}
+                maxLength={280}
               />
+              {optionTwoLeft <= 100 && (
+                <div className="option-length">{optionTwoLeft} characters left</div>
+              )}
             </li>
           </ul>
           <ErrorsList errors={errors} />
-          <button className="btn" type="submit" disabled={optionOne === '' || optionTwo === ''}>
+          <button
+            className="btn"
+            type="submit"
+            disabled={
+              optionOne.length < 3 || optionTwo.length < 3 || optionOne.trim() === optionTwo.trim()
+            }
+          >
             Create New Poll
           </button>
         </form>
@@ -71,6 +90,9 @@ const NewQuestionPage = ({ dispatch, errors }) => {
     </div>
   );
 };
-
+NewQuestionPage.propTypes = {
+  dispatch: PropTypes.func,
+  errors: PropTypes.arrayOf(PropTypes.string),
+};
 const mapStateToProps = ({ errors }) => ({ errors });
 export default connect(mapStateToProps)(NewQuestionPage);

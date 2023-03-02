@@ -1,5 +1,6 @@
 import NavBar from '../components/NavBar';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 const LeaderboardPage = ({ sortedUsers, authedUserID, ranks }) => {
   return (
@@ -41,7 +42,11 @@ const LeaderboardPage = ({ sortedUsers, authedUserID, ranks }) => {
     </div>
   );
 };
-
+LeaderboardPage.propTypes = {
+  sortedUsers: PropTypes.arrayOf(PropTypes.object),
+  authedUserID: PropTypes.string,
+  ranks: PropTypes.arrayOf(PropTypes.number),
+};
 const mapStateToProps = ({ users, authedUserID }) => {
   const sortedUsers = Object.values(users).sort((a, b) => {
     return (

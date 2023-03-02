@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './LogoutButton';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 const NavBar = ({ authedUser }) => {
   return authedUser === undefined ? null : (
@@ -41,5 +42,8 @@ const NavBar = ({ authedUser }) => {
   );
 };
 
+NavBar.propTypes = {
+  authedUser: PropTypes.object,
+};
 const mapStateToProps = ({ users, authedUserID }) => ({ authedUser: users[authedUserID] });
 export default connect(mapStateToProps)(NavBar);

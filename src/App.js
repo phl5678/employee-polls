@@ -11,6 +11,7 @@ import NotFoundPage from './pages/NotFoundPage';
 import AuthGuard from './components/AuthGuard';
 import { handleInitialData } from './actions/shared';
 import { useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 function App({ dispatch }) {
   useEffect(() => {
@@ -37,5 +38,7 @@ function App({ dispatch }) {
     </div>
   );
 }
-
+App.propTypes = {
+  dispatch: PropTypes.func,
+};
 export default connect()(App);

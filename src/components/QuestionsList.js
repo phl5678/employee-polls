@@ -1,5 +1,6 @@
 import QuestionCard from './QuestionCard';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const QuestionsList = ({ title, questionsIds }) => {
   return (
@@ -31,4 +32,8 @@ const QuestionsList = ({ title, questionsIds }) => {
   );
 };
 
+QuestionsList.propTypes = {
+  title: PropTypes.string,
+  questionsIds: PropTypes.arrayOf(PropTypes.string),
+};
 export default QuestionsList;

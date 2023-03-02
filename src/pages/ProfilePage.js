@@ -2,6 +2,7 @@ import React from 'react';
 import NavBar from '../components/NavBar';
 import { connect } from 'react-redux';
 import QuestionsList from '../components/QuestionsList';
+import PropTypes from 'prop-types';
 
 const ProfilePage = ({ authedUser }) => {
   return (
@@ -22,5 +23,8 @@ const ProfilePage = ({ authedUser }) => {
   );
 };
 
+ProfilePage.propTypes = {
+  authedUser: PropTypes.object,
+};
 const mapStateToProps = ({ users, authedUserID }) => ({ authedUser: users[authedUserID] });
 export default connect(mapStateToProps)(ProfilePage);

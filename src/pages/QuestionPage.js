@@ -2,10 +2,10 @@ import NavBar from '../components/NavBar';
 import { connect } from 'react-redux';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import FormattedDate from '../components/FormattedDate';
-
 import AnswersList from '../components/AnswersList';
 import AnswersListResult from '../components/AnswersListResult';
 import NotFoundPage from './NotFoundPage';
+import PropTypes from 'prop-types';
 
 const withRouter = (Component) => {
   const ComponentWithRouterProp = (props) => {
@@ -49,7 +49,12 @@ const QuestionPage = ({ question, author, authedUserID, authedUserAnswer }) => {
     </div>
   );
 };
-
+QuestionPage.propTypes = {
+  question: PropTypes.object,
+  author: PropTypes.object,
+  authedUserID: PropTypes.string,
+  authedUserAnswer: PropTypes.string,
+};
 const mapStateToProps = ({ authedUserID, users, questions }, props) => {
   const { question_id } = props.router.params;
   const question = questions[question_id];

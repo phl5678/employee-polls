@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 const AnswerResult = ({ optionText, showOption, calcOption, userAnswer }) => {
   function calcPercentage(a, b) {
     return (100 * (a / (a + b))).toFixed(0);
@@ -19,5 +21,10 @@ const AnswerResult = ({ optionText, showOption, calcOption, userAnswer }) => {
     </li>
   );
 };
-
+AnswerResult.propTypes = {
+  optionText: PropTypes.string,
+  showOption: PropTypes.object,
+  calcOption: PropTypes.object,
+  userAnswer: PropTypes.string,
+};
 export default AnswerResult;

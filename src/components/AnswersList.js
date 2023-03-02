@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { handleAnswerQuestion } from '../actions/questions';
 
 const AnswersList = ({ dispatch, authedUser, question }) => {
@@ -19,5 +20,9 @@ const AnswersList = ({ dispatch, authedUser, question }) => {
     </ul>
   );
 };
-
+AnswersList.propTypes = {
+  dispatch: PropTypes.func,
+  authedUser: PropTypes.string,
+  question: PropTypes.object,
+};
 export default connect()(AnswersList);

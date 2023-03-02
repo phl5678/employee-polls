@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import NavBar from '../components/NavBar';
+import PropTypes from 'prop-types';
 
 const NotFoundPage = ({ authedUserID }) => {
   return (
@@ -9,5 +10,6 @@ const NotFoundPage = ({ authedUserID }) => {
     </div>
   );
 };
+NotFoundPage.propTypes = { authedUserID: PropTypes.string };
 const mapStateToProps = ({ authedUserID }) => ({ authedUserID });
 export default connect(mapStateToProps)(NotFoundPage);

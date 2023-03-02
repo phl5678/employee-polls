@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import FormattedDate from './FormattedDate';
+import PropTypes from 'prop-types';
 
 const QuestionCard = ({ question }) => {
   return question === null ? null : (
@@ -14,6 +15,10 @@ const QuestionCard = ({ question }) => {
       </Link>
     </li>
   );
+};
+
+QuestionCard.propTypes = {
+  question: PropTypes.object,
 };
 const mapStateToProps = ({ questions }, { questionId }) => ({
   question: questions[questionId],
