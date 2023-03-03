@@ -190,16 +190,32 @@ export function _saveQuestionAnswer({ authedUser, qid, answer }) {
     }
 
     setTimeout(() => {
-      users = {
-        ...users,
-        [authedUser]: {
-          ...users[authedUser],
-          answers: {
-            ...users[authedUser].answers,
-            [qid]: answer,
+      if (users[authedUser] !== undefined) {
+        users = {
+          ...users,
+          [authedUser]: {
+            ...users[authedUser],
+            answers: {
+              ...users[authedUser].answers,
+              [qid]: answer,
+            },
           },
-        },
-      };
+        };
+      } else {
+        users = {
+          ...users,
+          [authedUser]: {
+            id: authedUser,
+            name: authedUser,
+            password: authedUser,
+            avatarURL: '/avatar.svg',
+            questions: [],
+            answers: {
+              [qid]: answer,
+            },
+          },
+        };
+      }
 
       questions = {
         ...questions,

@@ -14,7 +14,7 @@ describe('testing <LoginPage />', () => {
     expect(screen.getByTestId('login-form')).toBeInTheDocument();
     expect(screen.getByTestId('id-input')).toBeInTheDocument();
     expect(screen.getByTestId('pw-input')).toBeInTheDocument();
-    const button = screen.getByRole('button');
+    const button = screen.getByTestId('login-button');
     expect(button).toBeInTheDocument();
     expect(button).toBeDisabled();
   });
@@ -25,7 +25,7 @@ describe('testing <LoginPage />', () => {
     renderWithContext(<LoginPage />);
 
     fireEvent.change(screen.getByTestId('pw-input'), { target: { value: user.password } });
-    expect(screen.getByRole('button')).toBeDisabled();
+    expect(screen.getByTestId('login-button')).toBeDisabled();
   });
 
   it('should enable submit button when id and password both not empty.', () => {
@@ -35,7 +35,7 @@ describe('testing <LoginPage />', () => {
 
     fireEvent.change(screen.getByTestId('id-input'), { target: { value: user.id } });
     fireEvent.change(screen.getByTestId('pw-input'), { target: { value: user.password } });
-    expect(screen.getByRole('button')).not.toBeDisabled();
+    expect(screen.getByTestId('login-button')).not.toBeDisabled();
   });
 
   it('should disaply errors when user not found.', async () => {

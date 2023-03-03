@@ -22,7 +22,7 @@ function answerQuestion({ qid, authedUser, answer }) {
   };
 }
 
-//info: { authedUser, qid, answer }
+//info: { authedUserID, qid, answer }
 export function handleAnswerQuestion(info) {
   return (dispatch) => {
     return saveQuestionAnswer(info)

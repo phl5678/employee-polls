@@ -2,9 +2,9 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { handleAnswerQuestion } from '../actions/questions';
 
-const AnswersList = ({ dispatch, authedUser, question }) => {
+const AnswersList = ({ dispatch, authedUserID, question }) => {
   function handleClick(option) {
-    dispatch(handleAnswerQuestion({ authedUser, qid: question.id, answer: option }));
+    dispatch(handleAnswerQuestion({ authedUser: authedUserID, qid: question.id, answer: option }));
   }
   return (
     <ul>

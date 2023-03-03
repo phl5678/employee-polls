@@ -8,15 +8,21 @@ import LeaderboardPage from './pages/LeaderboardPage';
 import ProfilePage from './pages/ProfilePage';
 import LoginPage from './pages/LoginPage';
 import NotFoundPage from './pages/NotFoundPage';
+import CallbackPage from './pages/CallbackPage';
 import AuthGuard from './components/AuthGuard';
 import { handleInitialData } from './actions/shared';
 import { useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { useAuth0 } from '@auth0/auth0-react';
 
-function App({ dispatch }) {
+function App({ dispatch, authedUserID }) {
+  const { isAuthenticated, user } = useAuth0();
+
   useEffect(() => {
-    dispatch(handleInitialData());
-  }, [dispatch]);
+    if (isAuthenticated || authedUserID !== null) {
+      dispatch(handleInitialData(user));
+    }
+  }, [dispatch, authedUserID, isAuthenticated, user]);
 
   return (
     <div className="app">
@@ -32,6 +38,7 @@ function App({ dispatch }) {
           <Route path="/add" element={<AuthGuard component={<NewQuestionPage />} />} />
           <Route path="/leaderboard" element={<AuthGuard component={<LeaderboardPage />} />} />
           <Route path="/profile" element={<AuthGuard component={<ProfilePage />} />} />
+          <Route path="/callback" element={<CallbackPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </div>
@@ -41,4 +48,5 @@ function App({ dispatch }) {
 App.propTypes = {
   dispatch: PropTypes.func,
 };
-export default connect()(App);
+const mapStateToProps = ({ authedUserID }) => ({ authedUserID });
+export default connect(mapStateToProps)(App);

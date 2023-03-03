@@ -7,6 +7,7 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import reducer from './reducers';
 import middleware from './middleware';
+import { Auth0ProviderWithNavigate } from './components/auth0/Auth0ProviderWithNavigate';
 
 const store = createStore(reducer, middleware);
 
@@ -15,7 +16,9 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
-        <App />
+        <Auth0ProviderWithNavigate>
+          <App />
+        </Auth0ProviderWithNavigate>
       </BrowserRouter>
     </Provider>
   </React.StrictMode>

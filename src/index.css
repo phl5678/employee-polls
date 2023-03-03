@@ -30,11 +30,13 @@ a,
 .link-btn {
   text-decoration: none;
   color: white;
+  margin: 0;
 }
 
 a:hover,
 .link-btn:hover {
   color: #f565f5;
+  margin: 0;
 }
 
 button.link-btn {
@@ -63,6 +65,7 @@ button {
   color: white;
   border: none;
   border-radius: 5px;
+  margin-bottom: 10px;
 }
 
 .btn:hover,
@@ -100,6 +103,11 @@ button:disabled {
   font-family: inherit;
 }
 
+.btn.secondary {
+  background: none;
+  border: 2px solid #f565f5;
+  color: #f565f5;
+}
 .center {
   text-align: center;
 }
@@ -384,7 +392,15 @@ input[type='radio']:checked:after {
 .login {
   padding-top: 40px;
 }
-
+.login-panel {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.login-panel > div {
+  margin: 20px;
+}
 /* Profile Page */
 .profile .user-info {
   margin-bottom: 50px;

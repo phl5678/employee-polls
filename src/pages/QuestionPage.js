@@ -42,7 +42,7 @@ const QuestionPage = ({ question, author, authedUserID, authedUserAnswer }) => {
           {authedUserAnswer ? (
             <AnswersListResult question={question} authedUserAnswer={authedUserAnswer} />
           ) : (
-            <AnswersList question={question} authedUser={authedUserID} />
+            <AnswersList question={question} authedUserID={authedUserID} />
           )}
         </div>
       </div>

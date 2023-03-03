@@ -11,7 +11,7 @@ const ProfilePage = ({ authedUser }) => {
 
       <div className="container center">
         <div className="profile">
-          <img src={authedUser.avatarURL} alt="Profile" className="avatar" />
+          <img src={authedUser.avatarURL} alt="Profile" className="avatar" width="150px" />
           <div className="user-info">
             <h3 className="user-name">{authedUser.name}</h3>
             <span className="user-id">{authedUser.id}</span>
