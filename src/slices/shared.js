@@ -1,8 +1,8 @@
 import { getInitialData } from '../utils/api';
-import { handleSetAuth0User } from './authedUser';
-import { receiveUsers } from './users';
-import { receiveQuestions } from './questions';
+import { handleSetAuth0User } from './authedUserSlice';
 import { showLoading, hideLoading } from 'react-redux-loading-bar';
+import { questionsReceived } from './questionsSlice';
+import { usersReceived } from './usersSlice';
 
 export function handleInitialData(user) {
   return (dispatch) => {
@@ -11,8 +11,8 @@ export function handleInitialData(user) {
       if (user !== undefined) {
         dispatch(handleSetAuth0User(user));
       }
-      dispatch(receiveUsers(users));
-      dispatch(receiveQuestions(questions));
+      dispatch(usersReceived(users));
+      dispatch(questionsReceived(questions));
       dispatch(hideLoading());
     });
   };

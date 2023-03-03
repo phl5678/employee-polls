@@ -1,11 +1,11 @@
-import { handleAddQuestion } from '../actions/questions';
+import { handleAddQuestion } from '../slices/questionsSlice';
 import NavBar from '../components/NavBar';
 import { useState } from 'react';
 import { connect } from 'react-redux';
 import ErrorsList from '../components/ErrorsList';
-import { resetErrors } from '../actions/errors';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { errorsReset } from '../slices/errorsSlice';
 
 const NewQuestionPage = ({ dispatch, errors }) => {
   const navigate = useNavigate();
@@ -14,16 +14,16 @@ const NewQuestionPage = ({ dispatch, errors }) => {
 
   const handleChangeOne = (e) => {
     setOptionOne(e.target.value);
-    if (errors.length > 0) dispatch(resetErrors());
+    if (errors.length > 0) dispatch(errorsReset());
   };
   const handleChangeTwo = (e) => {
     setOptionTwo(e.target.value);
-    if (errors.length > 0) dispatch(resetErrors());
+    if (errors.length > 0) dispatch(errorsReset());
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (errors.length > 0) dispatch(resetErrors());
+    if (errors.length > 0) dispatch(errorsReset());
     dispatch(handleAddQuestion(optionOne, optionTwo)).then(() => {
       if (errors.length === 0) navigate('/home');
     });
@@ -92,7 +92,7 @@ const NewQuestionPage = ({ dispatch, errors }) => {
 };
 NewQuestionPage.propTypes = {
   dispatch: PropTypes.func,
-  errors: PropTypes.arrayOf(PropTypes.string),
+  errors: PropTypes.arrayOf(PropTypes.string)
 };
 const mapStateToProps = ({ errors }) => ({ errors });
 export default connect(mapStateToProps)(NewQuestionPage);

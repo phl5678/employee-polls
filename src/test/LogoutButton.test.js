@@ -3,9 +3,9 @@ import LogoutButton from '../components/LogoutButton';
 import { renderWithContext } from './test-utils';
 
 const mockHandleUserLogout = jest.fn();
-jest.mock('../actions/authedUser.js', () => ({
-  ...jest.requireActual('../actions/authedUser.js'),
-  handleUserLogout: () => mockHandleUserLogout,
+jest.mock('../slices/authedUserSlice.js', () => ({
+  ...jest.requireActual('../slices/authedUserSlice.js'),
+  handleUserLogout: () => mockHandleUserLogout
 }));
 
 describe('testing <LogoutButton />', () => {

@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { handleUserLogout } from '../actions/authedUser';
+import { handleUserLogout } from '../slices/authedUserSlice';
 import { useAuth0 } from '@auth0/auth0-react';
 
 const LogoutButton = ({ dispatch }) => {
@@ -14,8 +14,8 @@ const LogoutButton = ({ dispatch }) => {
     if (isAuthenticated === true) {
       logout({
         logoutParams: {
-          returnTo: window.location.origin,
-        },
+          returnTo: window.location.origin
+        }
       });
     } else {
       dispatch(handleUserLogout());
@@ -30,6 +30,6 @@ const LogoutButton = ({ dispatch }) => {
 };
 
 LogoutButton.propTypes = {
-  dispatch: PropTypes.func,
+  dispatch: PropTypes.func
 };
 export default connect()(LogoutButton);

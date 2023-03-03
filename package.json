@@ -43,6 +43,7 @@
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
-    "jest": "^27.5.1"
+    "jest": "^27.5.1",
+    "redux-devtools-extension": "^2.13.9"
   }
 }

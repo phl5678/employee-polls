@@ -1,12 +1,12 @@
 import { connect } from 'react-redux';
-import { handleUserLogin } from '../actions/authedUser';
+import { handleUserLogin } from '../slices/authedUserSlice';
 import { useEffect, useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import ErrorsList from '../components/ErrorsList';
-import { resetErrors } from '../actions/errors';
 import PropTypes from 'prop-types';
 import LoginButton from '../components/auth0/LoginButton';
 import SignupButton from '../components/auth0/SignupButton';
+import { errorsReset } from '../slices/errorsSlice';
 
 const LoginPage = ({ dispatch, errors, authedUserID }) => {
   const navigate = useNavigate();
@@ -22,17 +22,17 @@ const LoginPage = ({ dispatch, errors, authedUserID }) => {
   }, [authedUserID, navigate, redirect]);
 
   function handleChangeID(e) {
-    if (errors && errors.length > 0) dispatch(resetErrors());
+    if (errors && errors.length > 0) dispatch(errorsReset());
     setID(e.target.value);
   }
   function handleChangePW(e) {
-    if (errors && errors.length > 0) dispatch(resetErrors());
+    if (errors && errors.length > 0) dispatch(errorsReset());
     setPW(e.target.value);
   }
 
   function handleSumbit(e) {
     e.preventDefault();
-    if (errors && errors.length > 0) dispatch(resetErrors());
+    if (errors && errors.length > 0) dispatch(errorsReset());
     dispatch(handleUserLogin(id, pw));
   }
   return (
@@ -87,7 +87,7 @@ const LoginPage = ({ dispatch, errors, authedUserID }) => {
 LoginPage.propTypes = {
   dispatch: PropTypes.func,
   errors: PropTypes.arrayOf(PropTypes.string),
-  authedUserID: PropTypes.string,
+  authedUserID: PropTypes.string
 };
 const mapStateToProps = ({ errors, authedUserID }) => ({ errors, authedUserID });
 export default connect(mapStateToProps)(LoginPage);

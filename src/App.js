@@ -10,7 +10,7 @@ import LoginPage from './pages/LoginPage';
 import NotFoundPage from './pages/NotFoundPage';
 import CallbackPage from './pages/CallbackPage';
 import AuthGuard from './components/AuthGuard';
-import { handleInitialData } from './actions/shared';
+import { handleInitialData } from './slices/shared';
 import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useAuth0 } from '@auth0/auth0-react';
@@ -46,7 +46,7 @@ function App({ dispatch, authedUserID }) {
   );
 }
 App.propTypes = {
-  dispatch: PropTypes.func,
+  dispatch: PropTypes.func
 };
 const mapStateToProps = ({ authedUserID }) => ({ authedUserID });
 export default connect(mapStateToProps)(App);

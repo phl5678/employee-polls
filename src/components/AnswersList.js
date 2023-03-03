@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { handleAnswerQuestion } from '../actions/questions';
+import { handleAnswerQuestion } from '../slices/questionsSlice';
 
 const AnswersList = ({ dispatch, authedUserID, question }) => {
   function handleClick(option) {
-    dispatch(handleAnswerQuestion({ authedUser: authedUserID, qid: question.id, answer: option }));
+    dispatch(handleAnswerQuestion({ authedUserID, qid: question.id, answer: option }));
   }
   return (
     <ul>
@@ -23,6 +23,6 @@ const AnswersList = ({ dispatch, authedUserID, question }) => {
 AnswersList.propTypes = {
   dispatch: PropTypes.func,
   authedUser: PropTypes.string,
-  question: PropTypes.object,
+  question: PropTypes.object
 };
 export default connect()(AnswersList);

@@ -35,30 +35,30 @@ describe('testing _saveQuestion() in _DATA.js', () => {
 
 describe('testing _saveQuestionAnswer() in _DATA.js', () => {
   it('should resolve and return true when the correct info is passed in', async () => {
-    const info = { authedUser: 'sarahedo', qid: 'xj352vofupe1dqz9emx13r', answer: 'optionOne' };
+    const info = { authedUserID: 'sarahedo', qid: 'xj352vofupe1dqz9emx13r', answer: 'optionOne' };
     const result = await _saveQuestionAnswer(info);
     expect(result).toEqual(true);
   });
   it('should reject with error when qid is empty', async () => {
-    const info = { authedUser: 'sarahedo', qid: '', answer: 'optionOne' };
+    const info = { authedUserID: 'sarahedo', qid: '', answer: 'optionOne' };
     await expect(_saveQuestionAnswer(info)).rejects.toEqual(
       'Please provide authedUser, qid, and answer'
     );
   });
   it('should reject with error when qid is undefined', async () => {
-    const info = { authedUser: 'sarahedo', answer: 'optionOne' };
+    const info = { authedUserID: 'sarahedo', answer: 'optionOne' };
     await expect(_saveQuestionAnswer(info)).rejects.toEqual(
       'Please provide authedUser, qid, and answer'
     );
   });
   it('should reject with error when authedUser is null', async () => {
-    const info = { authedUser: null, qid: 'xj352vofupe1dqz9emx13r', answer: 'optionOne' };
+    const info = { authedUserID: null, qid: 'xj352vofupe1dqz9emx13r', answer: 'optionOne' };
     await expect(_saveQuestionAnswer(info)).rejects.toEqual(
       'Please provide authedUser, qid, and answer'
     );
   });
   it('should reject with error when answer is empty string', async () => {
-    const info = { authedUser: 'sarahedo', qid: 'xj352vofupe1dqz9emx13r', answer: '' };
+    const info = { authedUserID: 'sarahedo', qid: 'xj352vofupe1dqz9emx13r', answer: '' };
     await expect(_saveQuestionAnswer(info)).rejects.toEqual(
       'Please provide authedUser, qid, and answer'
     );

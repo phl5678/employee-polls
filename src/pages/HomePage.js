@@ -47,7 +47,7 @@ const HomePage = ({ newQuestionsIds, doneQuestionsIds, isLoading }) => {
 HomePage.propTypes = {
   newQuestionsIds: PropTypes.arrayOf(PropTypes.string),
   doneQuestionsIds: PropTypes.arrayOf(PropTypes.string),
-  isLoading: PropTypes.bool,
+  isLoading: PropTypes.bool
 };
 
 const mapStateToProps = ({ questions, authedUserID }) => {
@@ -70,7 +70,7 @@ const mapStateToProps = ({ questions, authedUserID }) => {
   return {
     newQuestionsIds,
     doneQuestionsIds,
-    isLoading: questions === {},
+    isLoading: authedUserID === undefined
   };
 };
 export default connect(mapStateToProps)(HomePage);

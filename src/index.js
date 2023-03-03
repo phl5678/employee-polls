@@ -3,13 +3,11 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
-import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import reducer from './reducers';
-import middleware from './middleware';
 import { Auth0ProviderWithNavigate } from './components/auth0/Auth0ProviderWithNavigate';
+import configureAppStore from './configureAppStore';
 
-const store = createStore(reducer, middleware);
+const store = configureAppStore();
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
